@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
-<script src="myscripts.js"></script> 
-<body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="myfile.css">
+    <script src="myscripts.js"></script> 
+</head>
+
+<body onload="startGame()" >
+
+<button onclick="moveleft()">LEFT</button>
+<button onclick="moveright()">RIGHT</button>
+
+<br>
+<br>
 
 <h1>Question: </h1>
 <p id="quest">--</p>
@@ -15,10 +26,18 @@
 
 <p id="finalScore"></p>
 
+<br>
+
+<h1>Life: </h1>
+<p id="life">--</p>
+
 <button id="trueButton" onclick="myFunction(1)" disabled>TRUE</button>
 <button id="falseButton" onclick="myFunction(0)" disabled>FALSE</button>
 <button id="startButton" onclick="start()">START GAME!</button>
 <p id="demo"></p>
+
+<br>
+<br>
 
 
 
