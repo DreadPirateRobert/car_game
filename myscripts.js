@@ -17,6 +17,7 @@ var questions = [
 var answers = [-1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1];
 var index = 0, score = 0, x, life = 3;
 
+//This function is responsible to update the questions and handling the dynamics of the gameplay (handles all the logic part of the code)
 function myFunction(x) {
     var x = null;
     if(myGamePiece.x >= 240){
@@ -59,6 +60,7 @@ function myFunction(x) {
     setTimeout(myFunction, 5000);
 }
 
+//This is called when the game is supposed to start and initializes all the required variables
 function start() {
     index = 0; score = 0; life = 3;
     document.getElementById("quest").innerHTML = questions[index];
@@ -74,6 +76,8 @@ function start() {
 
 var myGamePiece;
 
+
+//This is the function which is called onLoad and creates the canvas which displays the game screen and displays all the variable on the canvas
 function startGame() {
     myGamePiece = new component(30, 30, "red", 192, 170);
     myGameArea.start();
@@ -88,12 +92,6 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = updateGameArea();
 
-    //     ctx = myGameArea.context;
-    //     base_image2 = new Image();
-    //     base_image2.src = 'CrazyCarsAssets/car_challenge_road.png';
-    //     base_image2.onload = function(){
-    //     ctx.drawImage(base_image2, 0, 0, base_image2.width, base_image2.height, 100, 0, 280, 270);
-    // }
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -111,9 +109,6 @@ function component(width, height, color, x, y) {
     
     this.update = function() {
         ctx = myGameArea.context;
-        // ctx.fillStyle = color;
-        // ctx.fillRect(this.x, this.y, this.width, this.height);
-       
 
         // ctx = myGameArea.context;
         base_image2 = new Image();
@@ -169,6 +164,7 @@ function updateGameArea() {
     myGamePiece.update();
 }
 
+//respective functions for the movement of the car on the function
 function moveup() {
     myGamePiece.y -= 96; 
 }
@@ -178,13 +174,8 @@ function movedown() {
 }
 
 function moveleft() {
-    // if(myGameArea.x - 96 >= 50){
-        myGamePiece.x -= 96;
+    myGamePiece.x -= 96;
     clearCanvas();
-    // ctx.clearRect(100, 0, 280, 270);
-
-    // ctx.fillStyle = "#FF0000";
-    // ctx.fillRect(20, 20, 150, 100);
 }
 
 function moveright() {
@@ -192,14 +183,9 @@ function moveright() {
         myGamePiece.x += 96;
     }
     clearCanvas();     
-
-    // ctx.font = "30px Comic Sans MS";
-    // ctx.fillStyle = "red";
-    // ctx.textAlign = "center";
-    // ctx.fillText("Hello World", 0, 0); 
-    
 }
 
+//This function is called whenever there is a change in the canvas element, it is supposed to display and place all the right elements
 function clearCanvas(){
 
     // Draw Road
