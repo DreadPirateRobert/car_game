@@ -7,9 +7,11 @@
 </head>
 
 <body onload="startGame()" >
-
-<button onclick="moveleft()">LEFT</button>
-<button onclick="moveright()">RIGHT</button>
+<br>
+<button id="startButton" onclick="start()">START GAME!</button>
+<br>
+<button id="leftdir" onclick="moveleft()" disabled>LEFT</button>
+<button id="rightdir" onclick="moveright()" disabled>RIGHT</button>
 
 <br>
 <br>
@@ -33,7 +35,6 @@
 
 <button id="trueButton" onclick="myFunction(1)" disabled>TRUE</button>
 <button id="falseButton" onclick="myFunction(0)" disabled>FALSE</button>
-<button id="startButton" onclick="start()">START GAME!</button>
 <p id="demo"></p>
 
 <br>
